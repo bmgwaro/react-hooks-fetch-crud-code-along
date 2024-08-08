@@ -8,10 +8,10 @@ function ItemForm({onAddItem}) {
     e.preventDefault()
     const itemData={
       name:name,
-      catgory:category,
+      category:category,
       isInCart:false
     }
-    fetch("http://localhost:3000/items", {
+    fetch("http://localhost:4000/items", {
       method:"POST",
       headers:{
         "Content-Type":"application/json",
@@ -25,7 +25,7 @@ function ItemForm({onAddItem}) {
   }
 
   return (
-    <form className="NewItem">
+    <form onSubmit={handleSubmit} className="NewItem">
       <label>
         Name:
         <input
@@ -49,7 +49,7 @@ function ItemForm({onAddItem}) {
         </select>
       </label>
 
-      <button onSubmit={handleSubmit} type="submit">Add to List</button>
+      <button type="submit">Add to List</button>
     </form>
   );
 }
